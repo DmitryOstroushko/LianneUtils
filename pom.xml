@@ -11,8 +11,8 @@
 	</parent>
 
 	<groupId>com.lianne.utils</groupId>
-	<artifactId>utils</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>lianne-utils</artifactId>
+	<version>1.0.0</version>
 	<name>Lianne utils</name>
 	<description>Utils for java development</description>
 
@@ -73,10 +73,6 @@
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
 		</plugins>
 	</build>
 

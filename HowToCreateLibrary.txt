@@ -1,0 +1,7 @@
+HOW TO CREATE THE LIBRARY
+
+To build the library, run the command:
+    clean install mvn
+
+This will create a JAR file in the target folder. For example:
+    target/my-utils-1.0.0.jar

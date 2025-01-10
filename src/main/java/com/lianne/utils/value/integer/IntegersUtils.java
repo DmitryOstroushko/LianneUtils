@@ -3,10 +3,10 @@ package com.lianne.utils.value.integer;
 public class IntegersUtils {
 
     /**
-     *
-     * @param dividend is an Integer number
+     * Util method performs checks if one integer number is multiple of the another integer number
+     * @param dividend is an integer number
      * @param divisor is a positive Integer number
-     * @return if dividend is a multiple of the divisor
+     * @return true if dividend integer value is a multiple of the divisor integer value
      */
     public static boolean isMultipleOfNumber(int dividend, int divisor) {
         if (divisor > 0) {

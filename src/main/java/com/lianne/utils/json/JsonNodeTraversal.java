@@ -11,12 +11,23 @@ public class JsonNodeTraversal {
 
     private static final String unknownFieldName = "unknown";
 
+    /**
+     * Util method extract information from JsonObject as a Map<String, String> object
+     * @param node is a JsonNode structure object
+     * @return the Map object
+     */
     public static @NotNull Map<String, String> traverseJsonNode(@NotNull JsonNode node) {
         Map<String, String> collectibleItemSearchRequestParams = new HashMap<>();
         traverseJsonNodeInternal(node, unknownFieldName, collectibleItemSearchRequestParams);
         return collectibleItemSearchRequestParams;
     }
 
+    /**
+     * Internal recursive method to process a current JsonNode
+     * @param node is a current JsonNode
+     * @param currentFieldName is a current field name
+     * @param resultMap is a current Map<String, String> object
+     */
     private static void traverseJsonNodeInternal(
             @NotNull JsonNode node,
             @NotNull String currentFieldName,

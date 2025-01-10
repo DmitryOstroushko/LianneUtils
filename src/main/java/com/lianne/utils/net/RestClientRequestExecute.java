@@ -19,14 +19,19 @@ import org.springframework.web.util.UriComponentsBuilder;
 import org.jetbrains.annotations.NotNull;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
-@RequiredArgsConstructor
 @Component
-@Slf4j
 public class RestClientRequestExecute {
 
     private final RestTemplate restTemplate;
+
+    public RestClientRequestExecute() {
+        this.restTemplate = new RestTemplate();
+    }
+
+    public RestClientRequestExecute(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
     /**
      * Execute GET method by RestTemplate
@@ -55,7 +60,6 @@ public class RestClientRequestExecute {
                 String.class
         );
 
-        log.info("REST request sent to {}", uriComponents.toUriString());
         return extractResponseBody(response);
     }
 
@@ -106,10 +110,7 @@ public class RestClientRequestExecute {
      */
     private @Nullable String extractResponseBody(@NotNull ResponseEntity<String> response) {
         if (response.getStatusCode() == HttpStatus.OK) {
-            log.debug("API Response: {}", response);
             return response.getBody();
-        } else {
-            log.warn("API Call Failed. Response Code: {}", response.getStatusCode());
         }
         return null;
     }
@@ -123,12 +124,9 @@ public class RestClientRequestExecute {
             int responseCode = connection.getResponseCode();
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 String response = readResponse(connection);
-                log.info("API Response: {}", response);
-            } else {
-                log.warn("API Call Failed. Response Code: {}", responseCode);
             }
         } catch (Exception e) {
-            log.error("Error during HTTP call: {}", e.getMessage(), e);
+            System.out.printf("Error during HTTP call: %s", e.getMessage());
         }
     }
 

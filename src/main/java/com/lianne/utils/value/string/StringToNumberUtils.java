@@ -4,6 +4,12 @@ import java.util.Optional;
 
 public class StringToNumberUtils {
 
+    /**
+     * Util method performs safe conversion a String object to an Integer object.
+     * If the String object is an empty string, null object or invalid string then result is null.
+     * @param str is the String object to convert
+     * @return the Integer object as a result of conversion
+     */
     public static Integer safeParseInt(String str) {
         if (str == null || str.trim().isEmpty()) {
             return null;
@@ -16,6 +22,13 @@ public class StringToNumberUtils {
         }
     }
 
+    /**
+     * Util method performs safe conversion a String object to an Integer object.
+     * If the String object is an empty string, null object or invalid string then result is provided default value.
+     * @param str is the String object to convert
+     * @param defaultValue is a default value to return if a String object is an empty string, null object or invalid string
+     * @return the Integer object as a result of conversion
+     */
     public static Integer safeParseInt(String str, int defaultValue) {
         if (str == null || str.trim().isEmpty()) {
             return defaultValue;
@@ -28,6 +41,12 @@ public class StringToNumberUtils {
         }
     }
 
+    /**
+     * Util method performs safe conversion a String object to an Optional<Integer> object.
+     * If the String object is an empty string, null object or invalid string then result is null.
+     * @param str is the String object to convert
+     * @return the Optional<Integer> object as a result of conversion
+     */
     public static Optional<Integer> safeParseIntWithOptional(String str) {
 
         if (str == null || str.trim().isEmpty()) {
@@ -42,6 +61,12 @@ public class StringToNumberUtils {
 
     }
 
+    /**
+     * Util method performs safe conversion a String object to an Integer object in a given range.
+     * If the String object is an empty string, null object, invalid string or out of the given range then result is null.
+     * @param str is the String object to convert
+     * @return the Integer object as a result of conversion
+     */
     public static Integer safeParseIntWithRangeCheck(String str, int min, int max) {
 
         if (str == null || str.trim().isEmpty()) {
@@ -60,6 +85,12 @@ public class StringToNumberUtils {
 
     }
 
+    /**
+     * Util method performs safe conversion a String object to a Double object.
+     * If the String object is an empty string, null object or invalid string then result is null.
+     * @param str is the String object to convert
+     * @return the Double object as a result of conversion
+     */
     public static Double safeParseDouble(String str) {
 
         if (str == null || str.trim().isEmpty()) {

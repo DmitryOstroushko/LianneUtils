@@ -1,0 +1,30 @@
+HOW TO USE THE LIBRARY
+
+OPTION 1. Local dependency
+This option is used if it  doesn't plan to publish the library,
+it needs to add the library to the project's dependencies manually:
+    1. Copy the JAR file to the project.
+    2. Include the file as a local dependency in the Maven project:
+        <dependency>
+            <groupId>com.company.utils</groupId>
+            <artifactId>the-utils</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/the-utils-1.0.0.jar</systemPath>
+        </dependency>
+
+OPTION 2. Local MAVEN repository
+This option is used if it does plan to use the library in multiple projects:
+    1. Install the JAR file to the local MAVEN repository:
+        mvn install:install-file -Dfile=target/my-utils-1.0.0.jar -DgroupId=com.company.utils -DartifactId=the-utils -Dversion=1.0.0 -Dpackaging=jar
+    2. In other projects, add the dependency to pom.xml:
+        <dependency>
+            <groupId>com.company.utils</groupId>
+            <artifactId>the-utils</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+OPTION 3. Publishing to GitHub or Maven Central
+If the library can be useful to others, it can be placed:
+    1. On GitHub: Create a repository, upload the code, and add usage instructions.
+    2. In Maven Central: Follow the instructions
