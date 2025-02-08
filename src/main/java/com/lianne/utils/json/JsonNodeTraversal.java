@@ -7,14 +7,21 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class JsonNodeTraversal {
+/**
+ * Utility class for traversing and extracting data from a `JsonNode` structure.
+ * This class provides methods for recursively traversing a JSON tree and extracting
+ * information from it in the form of a `Map<String, String>`.
+ */public class JsonNodeTraversal {
 
     private static final String unknownFieldName = "unknown";
 
     /**
-     * Util method extract information from JsonObject as a Map<String, String> object
-     * @param node is a JsonNode structure object
-     * @return the Map object
+     * Recursively traverses a `JsonNode` and extracts its fields as a `Map<String, String>`.
+     * This method processes all nodes (objects, arrays, and values) in the JSON tree.
+     *
+     * @param node The root `JsonNode` structure to be traversed.
+     * @return A `Map<String, String>` containing all field names and their respective values
+     *         from the JSON structure.
      */
     public static @NotNull Map<String, String> traverseJsonNode(@NotNull JsonNode node) {
         Map<String, String> collectibleItemSearchRequestParams = new HashMap<>();
@@ -23,10 +30,12 @@ public class JsonNodeTraversal {
     }
 
     /**
-     * Internal recursive method to process a current JsonNode
-     * @param node is a current JsonNode
-     * @param currentFieldName is a current field name
-     * @param resultMap is a current Map<String, String> object
+     * Internal recursive method that processes the current `JsonNode` and traverses through its fields.
+     * It handles objects, arrays, and value nodes recursively, adding field names and their values to the result map.
+     *
+     * @param node The current `JsonNode` being processed.
+     * @param currentFieldName The name of the current field being processed.
+     * @param resultMap The map where field names and values are collected.
      */
     private static void traverseJsonNodeInternal(
             @NotNull JsonNode node,
