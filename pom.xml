@@ -12,7 +12,7 @@
 
 	<groupId>com.lianne.utils</groupId>
 	<artifactId>lianne-utils</artifactId>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 	<name>Lianne utils</name>
 	<description>Utils for java development</description>
 
@@ -68,11 +68,34 @@
 			<artifactId>spring-boot-starter-cache</artifactId>
 			<version>3.3.5</version>
 		</dependency>
-
 	</dependencies>
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.2.0</version>
+				<configuration>
+					<archive>
+						<manifestEntries>
+							<Main-Class></Main-Class>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
