@@ -12,7 +12,7 @@
 
 	<groupId>com.lianne.utils</groupId>
 	<artifactId>lianne-utils</artifactId>
-	<version>1.1.0</version>
+	<version>1.1.1</version>
 	<name>Lianne utils</name>
 	<description>Utils for java development</description>
 

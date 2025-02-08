@@ -2,13 +2,23 @@ package com.lianne.utils.value.string;
 
 import java.util.Optional;
 
+/**
+ * Utility class for safely converting strings to numeric types.
+ * <p>
+ * This class provides utility methods for converting strings to {@code Integer} or {@code Double}
+ * values with built-in safety checks to handle invalid, empty, or {@code null} strings.
+ * </p>
+ */
 public class StringToNumberUtils {
 
     /**
-     * Util method performs safe conversion a String object to an Integer object.
-     * If the String object is an empty string, null object or invalid string then result is null.
-     * @param str is the String object to convert
-     * @return the Integer object as a result of conversion
+     * Safely converts a string to an {@code Integer}.
+     * <p>
+     * If the string is {@code null}, empty, or invalid (i.e., not a valid integer), the method returns {@code null}.
+     * </p>
+     *
+     * @param str The string to be converted to an {@code Integer}.
+     * @return The resulting {@code Integer} or {@code null} if the string is invalid.
      */
     public static Integer safeParseInt(String str) {
         if (str == null || str.trim().isEmpty()) {
@@ -23,11 +33,14 @@ public class StringToNumberUtils {
     }
 
     /**
-     * Util method performs safe conversion a String object to an Integer object.
-     * If the String object is an empty string, null object or invalid string then result is provided default value.
-     * @param str is the String object to convert
-     * @param defaultValue is a default value to return if a String object is an empty string, null object or invalid string
-     * @return the Integer object as a result of conversion
+     * Safely converts a string to an {@code Integer}, providing a default value if conversion fails.
+     * <p>
+     * If the string is {@code null}, empty, or invalid (i.e., not a valid integer), the method returns the specified default value.
+     * </p>
+     *
+     * @param str The string to be converted to an {@code Integer}.
+     * @param defaultValue The default value to return if the conversion fails.
+     * @return The resulting {@code Integer} or the specified {@code defaultValue} if the string is invalid.
      */
     public static Integer safeParseInt(String str, int defaultValue) {
         if (str == null || str.trim().isEmpty()) {
@@ -42,10 +55,13 @@ public class StringToNumberUtils {
     }
 
     /**
-     * Util method performs safe conversion a String object to an Optional<Integer> object.
-     * If the String object is an empty string, null object or invalid string then result is null.
-     * @param str is the String object to convert
-     * @return the Optional<Integer> object as a result of conversion
+     * Safely converts a string to an {@code Optional<Integer>}.
+     * <p>
+     * If the string is {@code null}, empty, or invalid (i.e., not a valid integer), the method returns {@code Optional.empty()}.
+     * </p>
+     *
+     * @param str The string to be converted to an {@code Optional<Integer>}.
+     * @return An {@code Optional<Integer>} containing the parsed value or {@code Optional.empty()} if invalid.
      */
     public static Optional<Integer> safeParseIntWithOptional(String str) {
 
@@ -62,10 +78,15 @@ public class StringToNumberUtils {
     }
 
     /**
-     * Util method performs safe conversion a String object to an Integer object in a given range.
-     * If the String object is an empty string, null object, invalid string or out of the given range then result is null.
-     * @param str is the String object to convert
-     * @return the Integer object as a result of conversion
+     * Safely converts a string to an {@code Integer} within a given range.
+     * <p>
+     * If the string is {@code null}, empty, invalid, or the integer is out of the specified range, the method returns {@code null}.
+     * </p>
+     *
+     * @param str The string to be converted to an {@code Integer}.
+     * @param min The minimum acceptable value for the integer.
+     * @param max The maximum acceptable value for the integer.
+     * @return The resulting {@code Integer} within the range, or {@code null} if the string is invalid or out of range.
      */
     public static Integer safeParseIntWithRangeCheck(String str, int min, int max) {
 
@@ -86,10 +107,13 @@ public class StringToNumberUtils {
     }
 
     /**
-     * Util method performs safe conversion a String object to a Double object.
-     * If the String object is an empty string, null object or invalid string then result is null.
-     * @param str is the String object to convert
-     * @return the Double object as a result of conversion
+     * Safely converts a string to a {@code Double}.
+     * <p>
+     * If the string is {@code null}, empty, or invalid (i.e., not a valid double), the method returns {@code null}.
+     * </p>
+     *
+     * @param str The string to be converted to a {@code Double}.
+     * @return The resulting {@code Double} or {@code null} if the string is invalid.
      */
     public static Double safeParseDouble(String str) {
 
@@ -102,7 +126,6 @@ public class StringToNumberUtils {
         } catch (NumberFormatException e) {
             return null;
         }
-
     }
 
 }
